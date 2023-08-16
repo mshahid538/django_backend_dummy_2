@@ -1,0 +1,9 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：Merton Wicker
+Features: Light weight. Good quality. Shoulder strap.
+Product description:  Brighten your backyard with this product and make the outside of your home just as inviting as the inside. This product is modern, trendy, and provides user versatility by way of the unique reconfigurable design. Mix and match the patio chairs to create the perfect seating arrangement for your outdoor space. Create an inviting backyard space for you, your family, and your friends with this out sunny rattan sofa set.
+""""""
+Brand: {}
+Features: {}
+Product description:

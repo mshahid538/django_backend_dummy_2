@@ -1,0 +1,9 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：Dream Plus
+Features: Digital Photo Frame; 2K full HD touchscreen display; a sleek, minimalist look;  a premium soft-touch coating; 
+Product description: Connect, share, and display photos with Dream Plus. Best-in-class 2K FHD screen brings your pictures to life. Dream Plus uses an integrated stand & power adapter to give the device a sleek, minimalist look. The frame has a premium soft-touch coating so it feels as good as it looks. The 2K full HD touchscreen display gives the ultimate viewing experience with crisp, vivid images, accurate color reproduction, and a wide viewing angle.
+""""""
+Brand: {}
+Features: {}
+Product description:

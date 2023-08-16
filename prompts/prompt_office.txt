@@ -1,0 +1,9 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：Staples
+Features: Spiral-bound design for easy access of sheets inside. Great for school, home or work projects.
+Product description:  Write notes, lists and ideas in this college-ruled notebook. Spiral binding keeps 70 sheets securely connected and lets you smoothly flip pages, and three-hole punches make it easy to slip this notebook into a binder for safe storage. The college-ruled papers let you fit more writing per page. This Staples one-subject notebook comes in assorted colors randomly assigned to each order.
+""""""
+Brand: {}
+Features: {}
+Product description:

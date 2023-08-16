@@ -1,0 +1,10 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：Nylabone
+Features: Puppy chew teething pacifier. Soft. Flexible.Non-edible.
+Product description:  
+Made from soft, flexible material, the Puppy Pacifier from Nylabone Products is specially designed for teething puppies who have not formed their adult teeth. This non-edible, flexible product comes in dynamic, colorful shapes that are easy for young dogs to pick up, chew and enjoy their flavorful taste - helping to clean teeth, and control tartar and plaque build-up. It also encourages puppies to develop non-destructive chewing habits that will last a lifetime.
+""""""
+Brand: {}
+Features: {}
+Product description:

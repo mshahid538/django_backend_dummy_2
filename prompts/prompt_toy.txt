@@ -1,0 +1,10 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：LEGO
+Features: changing the tempo.make music and share videos set to their favorite songs.
+Product description: 
+When used in conjunction with an app, kids can use their LEGO minifigs to make music and share videos set to their favorite songs. Then, they can use "beatbits," which add cool effects to the videos, like changing the tempo, re-doing the lighting or doing something silly like turning all of the characters into pandas.
+""""""
+Brand: {}
+Features: {}
+Product description:

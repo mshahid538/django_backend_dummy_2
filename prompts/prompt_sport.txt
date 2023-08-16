@@ -1,0 +1,10 @@
+Write a creative product description for the following product to run on Facebook:
+""""""
+Brand：Flybar
+Features: Impact Resistant.Adjustable.Multi-Sport Protection.
+Product description:  Each knee pad, elbow pad and wrist guard feature soft, breathable neoprene materials for a comfortable fit and durable ABS hard caps to keep you safe and withstand impact.The Flybar Safety Gear Set is fully adjustable to fit someone of any size. Simply place the pad over your knee/elbow/wrist and adjust the straps to your liking.Flybar Knee pad, elbow pad and wrist guard set are suitable for many sports like: skateboarding, pogoing, roller/inline skating, cycling, BMX, scooter, mountain biking, and any other extreme sport or activity.
+Includes 1 pair of knee pads, elbow pads and wrist guards.
+""""""
+Brand: {}
+Features: {}
+Product description:

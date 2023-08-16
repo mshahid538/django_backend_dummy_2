@@ -1,0 +1,9 @@
+Write a creative product description for the following product:
+""""""
+Brand:  Nike
+Features:  sportswear hoodie. premium feel.heavyweight semi-brushed fleece.
+Product description: The Nike Sportswear Hoodie updates a closet staple with heavyweight semi-brushed fleece. A classic Nike logo embroidered in tonal thread offers a clean look while tall ribbed finishes provide a premium feel.
+""""""
+Brand: {}
+Features: {}
+Product description:
