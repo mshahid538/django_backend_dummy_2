@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-wi5g8ck!1a)ygbn^$#i+9ri)6a*f#l^dkdem9_=wec=4otbvp%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SITE_ID=1   
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -51,8 +51,23 @@ INSTALLED_APPS = [
     'storages',
     'django_apscheduler',
     'corsheaders',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
 
+SOCIALACCOUNT_PROVIDERS= {
+    "google": {
+        "SCOPE":[
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS":{"access_type":"online"}
+    }
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,7 +78,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -89,13 +109,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'futureai',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '',
+    'default': {    
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    
+
+        # 'NAME': [BASE_DIR,'dbsqlite3'],
+        # 'USER': 'root',
+        # 'PASSWORD': '123',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
 
@@ -212,3 +235,9 @@ APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 # facebook setup
 FB_APP_ID = os.getenv("FB_APP_ID")
 FB_APP_SECRET = os.getenv("FB_APP_SECRET")
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]

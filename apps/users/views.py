@@ -5,7 +5,8 @@ from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from smtplib import SMTPException
-
+from . models import UserProfile
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from rest_framework.authtoken.views import ObtainAuthToken
@@ -155,17 +156,19 @@ class RegisterView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        register_post_form = RegisterPostForm(data=request.data)
+        print("hello")
+        register_post_form = RegisterPostForm(data=request.POST)
+        print(request.POST)
         if register_post_form.is_valid():
             user_name = register_post_form.cleaned_data["username"]
             password = register_post_form.cleaned_data["password"]
             email = register_post_form.cleaned_data["email"]
-            # 新建一个用户
             user = UserProfile(username=user_name)
             user.set_password(password)
             user.email = email
             user.trial_count = 3
             user.save()
+            print('data is save')
 
             token = Token.objects.create(user=user)
 
@@ -314,6 +317,7 @@ class LoginView(ObtainAuthToken):
     * Requires token authentication.
     * Permission is anyone.
     """
+
     authentication_classes = [TokenAuthentication]
     permission_classes = [AllowAny]
 
@@ -328,32 +332,63 @@ class LoginView(ObtainAuthToken):
         return Response(response, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,
-                                           context={'request': request})
-        if serializer.is_valid():
-            user = serializer.validated_data['user']
-            user_name = serializer.validated_data['username']
-            token, created = Token.objects.get_or_create(user=user)
 
-            if not created:
-                # update the created time of the token to keep it valid
+            email = request.POST['email']
+            password = request.POST['password']
+            email =UserProfile.objects.get(email=email)
+            print(email)
+            user = authenticate(username=email, password=password)
+            print('user',user)
+            if user is not None:
+                token, created = Token.objects.get_or_create(user=user)
+                login(request,user)
                 utc_now = datetime.datetime.utcnow()
                 utc_now = utc_now.replace(tzinfo=pytz.utc)
                 token.created = utc_now
                 token.save()
-
-            return Response({
+                return Response({
                 'token': token.key,
-                'username': str(user_name),
+                'username': str(email.username),
                 'id': str(user.pk),
                 'pricing_tier': str(user.pricing_tier),
                 'email': str(user.email),
                 'trial_count': user.trial_count
-            })
-        else:
-            return Response({
+                })
+            else:
+
+                return Response({
                 'msg': "Wrong username or password",
-            }, status=status.HTTP_401_UNAUTHORIZED, )
+                }, status=status.HTTP_401_UNAUTHORIZED, ) 
+
+
+
+
+
+
+        # if serializer.is_valid():
+        #     user = serializer.validated_data['user']
+        #     user_name = serializer.validated_data['username']
+        #     token, created = Token.objects.get_or_create(user=user)
+        #     print("hello")
+        #     if not created:
+        #         # update the created time of the token to keep it valid
+                # utc_now = datetime.datetime.utcnow()
+        #         utc_now = utc_now.replace(tzinfo=pytz.utc)
+        #         token.created = utc_now
+        #         token.save()
+
+        #     return Response({
+        #         'token': token.key,
+        #         'username': str(user_name),
+        #         'id': str(user.pk),
+        #         'pricing_tier': str(user.pricing_tier),
+        #         'email': str(user.email),
+        #         'trial_count': user.trial_count
+        #     })
+        # else:
+        #     return Response({
+        #         'msg': "Wrong username or password",
+        #     }, status=status.HTTP_401_UNAUTHORIZED, )
 
 
 class ContactView(APIView):
