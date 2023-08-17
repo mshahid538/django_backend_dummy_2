@@ -5,6 +5,8 @@ from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from smtplib import SMTPException
+from django.shortcuts import render
+
 
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
@@ -153,6 +155,16 @@ class RegisterView(APIView):
     """
     authentication_classes = [TokenAuthentication]
     permission_classes = [AllowAny]
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return Response(reverse("index"))
+
+        next = request.GET.get("next", "")
+        response = {
+            "next": next,
+        }
+        return render(request,'sign-up-screen.html')
+
 
     def post(self, request, *args, **kwargs):
         register_post_form = RegisterPostForm(data=request.data)
@@ -169,7 +181,7 @@ class RegisterView(APIView):
 
             token = Token.objects.create(user=user)
 
-            return Response({
+            return render(request,'sign_up_screen.html',{
                 'msg': "register succeeds",
                 'token': token.key,
                 'username': str(user.username),
@@ -186,7 +198,7 @@ class RegisterView(APIView):
                 error_msg_response += "Username is used! "
             if "Email is used" in error_msg:
                 error_msg_response += "Email is used!"
-            return Response({
+            return render(request,'sign-up-screen.html',{
                 'msg': "register fails",
                 'errors': error_msg
             }, status=status.HTTP_406_NOT_ACCEPTABLE)
@@ -311,7 +323,7 @@ class LoginView(ObtainAuthToken):
     """
     View to login a user
 
-    * Requires token authentication.
+    * Requires token authentication
     * Permission is anyone.
     """
     authentication_classes = [TokenAuthentication]
@@ -325,7 +337,7 @@ class LoginView(ObtainAuthToken):
         response = {
             "next": next,
         }
-        return Response(response, status=status.HTTP_200_OK)
+        return render(request,'login.html')
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data,

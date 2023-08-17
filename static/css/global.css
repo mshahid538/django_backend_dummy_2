@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --p: Roboto;
+  --text-md-semibold: Inter;
+  --footnote-system-monospace: "Roboto Mono";
+  --font-sue-ellen-francisco: "Sue Ellen Francisco";
+
+  /* font sizes */
+  --p-size: 16px;
+  --h4-size: 21px;
+  --h5-size: 12px;
+  --h1-size: 50px;
+  --h3-size: 28px;
+  --font-size-21xl: 40px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-37xl: 56px;
+
+  /* Colors */
+  --mono-gray-4: #505050;
+  --white: #fff;
+  --mono-gray-2: #e1e1e1;
+  --color-gainsboro-100: rgba(225, 225, 225, 0);
+  --primary-pink: #e85b81;
+  --mono-gray-3: #b5b5b5;
+  --primary-purple: #5e48e8;
+  --color-blueviolet-100: rgba(112, 72, 232, 0.5);
+  --gray-300: #d0d5dd;
+  --gray-700: #344054;
+  --mono-black: #252525;
+  --color-gray-100: #212121;
+  --success: #007b40;
+  --dust-red-5: #ff4d4f;
+  --color-black: #000;
+  --color-skyblue: #8ce0f3;
+  --color-whitesmoke: #f9f9f9;
+
+  /* Gaps */
+  --gap-xs: 12px;
+  --gap-5xs: 8px;
+  --gap-10xs: 3px;
+  --gap-41xl: 60px;
+  --gap-13xl: 32px;
+  --gap-61xl: 80px;
+  --gap-5xl: 24px;
+
+  /* Paddings */
+  --padding-mini: 15px;
+  --padding-41xl: 60px;
+  --padding-3xs: 10px;
+  --padding-base: 16px;
+  --padding-7xs: 6px;
+  --padding-2xs: 11px;
+  --padding-4xs: 9px;
+  --padding-5xs: 8px;
+  --padding-5xl: 24px;
+  --padding-xl: 20px;
+  --padding-xs: 12px;
+  --padding-45xl: 64px;
+
+  /* border radiuses */
+  --br-sm: 14px;
+  --br-5xs: 8px;
+  --br-base: 16px;
+  --br-181xl: 200px;
+  --br-81xl: 100px;
+  --br-9xs: 4px;
+  --br-8xs: 5px;
+  --br-xs: 12px;
+
+  /* Effects */
+  --shadow-xs: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  --card-drop-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+}

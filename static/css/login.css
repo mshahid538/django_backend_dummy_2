@@ -1,0 +1,233 @@
+.login-child {
+  position: absolute;
+  top: 787px;
+  left: 638px;
+  border-radius: var(--br-9xs);
+  width: 339.5px;
+  height: 36.5px;
+}
+.button-text14 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+}
+.button11,
+.rectangle-icon12 {
+  position: absolute;
+  border-radius: var(--br-5xs);
+}
+.button11 {
+  top: 414px;
+  left: 168px;
+  background-color: var(--primary-pink);
+  width: 187px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-mini) var(--padding-41xl);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  color: var(--white);
+}
+.rectangle-icon12 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.icondropdown8 {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+.no-vacancies7 {
+  position: absolute;
+  top: calc(50% - 11px);
+  left: 24px;
+}
+.select11 {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: var(--p-size);
+  line-height: 20px;
+  color: var(--mono-gray-3);
+}
+.dropdown10,
+.dropdown9,
+.welcome-back {
+  position: absolute;
+  top: 251px;
+  left: 59px;
+  width: 420px;
+  height: 56px;
+  font-size: var(--h4-size);
+  color: var(--mono-gray-4);
+}
+.dropdown10,
+.welcome-back {
+  top: 342px;
+}
+.welcome-back {
+  top: 114px;
+  left: 70px;
+  font-size: var(--h1-size);
+  font-weight: 500;
+  color: var(--mono-black);
+  text-align: center;
+  display: inline-block;
+  width: 383px;
+  height: 45px;
+}
+.create-one {
+  color: var(--color-skyblue);
+}
+.dont-have-an-container,
+.forgot-password {
+  position: absolute;
+  top: 690px;
+  left: 136px;
+  line-height: 20px;
+}
+.forgot-password {
+  top: 317px;
+  left: 351px;
+}
+.b4 {
+  position: absolute;
+  top: 16px;
+  left: 218px;
+  font-size: 96px;
+  display: inline-block;
+  color: var(--color-black);
+  text-align: center;
+  width: 87px;
+  height: 130px;
+}
+.card-child2,
+.card-child3 {
+  position: absolute;
+  top: 490.5px;
+  left: 88.5px;
+  border-top: 1px solid var(--mono-gray-2);
+  box-sizing: border-box;
+  width: 117px;
+  height: 1px;
+}
+.card-child3 {
+  left: 316.5px;
+  width: 131px;
+}
+.log-in-to {
+  position: absolute;
+  top: 197px;
+  left: 57px;
+  font-size: var(--h5-size);
+  letter-spacing: 0.08em;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-black);
+  display: inline-block;
+  width: 401px;
+  height: 25px;
+}
+.social-icon16 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.text16 {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+}
+.social-button13 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--gray-300);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs) var(--padding-base);
+}
+.social-button-groups2,
+.social-button13,
+.social-button14 {
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xs);
+}
+.social-button14 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--gray-300);
+  overflow: hidden;
+  display: none;
+  flex-direction: row;
+  padding: var(--padding-3xs) var(--padding-base);
+}
+.social-button-groups2 {
+  position: absolute;
+  top: 526px;
+  left: 89px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  color: var(--gray-700);
+  font-family: var(--text-md-semibold);
+}
+.card13,
+.or1 {
+  position: absolute;
+}
+.or1 {
+  top: 481px;
+  left: 248px;
+  line-height: 20px;
+}
+.card13 {
+  top: 143px;
+  left: calc(50% - 170px);
+  border-radius: var(--br-base);
+  background-color: var(--white);
+  box-shadow: var(--card-drop-shadow);
+  border: 1px solid var(--white);
+  box-sizing: border-box;
+  width: 515px;
+  height: 729px;
+}
+.eye-off-icon1 {
+  position: absolute;
+  top: 501px;
+  left: calc(50% + 270px);
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.login {
+  position: relative;
+  background-color: var(--white);
+  width: 100%;
+  height: 982px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--p-size);
+  color: var(--mono-gray-3);
+  font-family: var(--p);
+}

@@ -24,7 +24,7 @@ import xadmin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
-    path('login/', LoginView.as_view(), name="login"),
+    path('login/',LoginView.as_view(), name="login"),
     path('register/', RegisterView.as_view(), name="register"),
     path('logout/', LogoutView.as_view(), name="logout"),
     path('contact/', ContactView.as_view(), name="contact"),

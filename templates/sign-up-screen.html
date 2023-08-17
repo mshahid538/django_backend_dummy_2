@@ -1,0 +1,86 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astory.ai</title>
+  <link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css">
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+    integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+    crossorigin="anonymous"></script>
+  <link href="{% static 'css/figma.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/figma_sign_up_screen.css' %}" rel="stylesheet" type="text/css">
+  <script src="{% static 'js/signup.js' %}" type="text/javascript"></script>
+</head>
+
+<body>
+  <!-- <header class="header">
+    <h2 class="header_title">
+      <span>ASTORY.AI</span>
+    </h2>
+    <nav class="header_navigation">
+      <a href="#">HOME</a>
+      <a href="#">FEATURES</a>
+      <a href="#">ABOUT</a>
+      <a href="#">PRICING</a>
+    </nav>
+    <nav class="header_navigation_login">
+      <a href="#">Log in</a>
+      <a href="#" class="button">Start for Free</a>
+    </nav>
+    <i class="fa fa-bars menu-ico"></i>
+    <i class="fa fa-times-circle close-ico"></i>
+  </header> -->
+  <div class="wrapper">
+    <div class="white_container">
+      <div class="signup_info">
+        <b>
+          Get 3 Free Translations Every Month
+        </b>
+        <div class="emoji_text_wrapper">
+          <div class="emoji_text">
+            <b class="b1">🤠</b>
+            <h5> Keep the speaker's voice and personality </h5>
+          </div>
+          <div class="emoji_text">
+            <b class="b1">📣</b>
+            <h5> [#] languages supported </h5>
+          </div>
+          <div class="emoji_text">
+            <b class="b1">🆓</b>
+            <h5> 3 free translations Every month </h5>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="social-button">
+        <img class="social-icon11" alt="" src={% static "./css/images/google.png" %}/>
+        <div class="text11">Sign up with Google</div>
+      </div>
+      <div class="social-button">
+        <img class="social-icon11" alt="" src={% static "./css/images/apple.svg"  %}/>
+        <div class="text11">Sign up with Apple</div>
+      </div>
+      <div class="social-button" >
+        <img class="social-icon11" alt="" src={% static "./css/images/mail.svg" %} />
+        <div class="text11" href='./sign-up-screen-email.html' onclick="emailsignClick()">Sign up with email</div>
+      </div>
+      <div class="already-have-an-container">
+        <span>Already have an account?  </span>
+        <a href='{%url 'login'%}' onclick="logoClick()">Log in</a>
+      </div>
+      <div class="by-continuing-you-container">
+        <!-- <span>By continuing you agree to our </span>
+        <a href="#">T&Cs</a>
+        <span> and </span>
+        <a href="#">Privacy Policy</a> -->
+        <!-- <span>.</span> -->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

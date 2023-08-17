@@ -90,12 +90,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'futureai',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': 'futureai',
+        # 'USER': 'root',
+        # 'PASSWORD': '123',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
 
@@ -170,12 +171,12 @@ MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN,
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 # s3 static settings
-STATICFILES_LOCATION = 'static'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static')
+   ]
+#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+#STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 AWS_TRANSLATE_ACCESS_KEY_ID = os.getenv("AWS_TRANSLATE_ACCESS_KEY_ID")
 AWS_TRANSLATE_SECRET_ACCESS_KEY = os.getenv("AWS_TRANSLATE_SECRET_ACCESS_KEY")
@@ -212,3 +213,7 @@ APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 # facebook setup
 FB_APP_ID = os.getenv("FB_APP_ID")
 FB_APP_SECRET = os.getenv("FB_APP_SECRET")
+
+
+
+# for static files

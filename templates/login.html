@@ -1,0 +1,105 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto Mono:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sue Ellen Francisco:wght@400&display=swap"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+          
+
+  </head>
+  <body>
+
+
+    
+    <div class="login">
+
+      <div class="card13">
+        <form method="POST">
+      
+          <button class="button11" type="submit">Log in</button>
+       
+        <div class="dropdown9">
+          <input name="Email" type="email" class="form-control"placeholder="Email"/>
+          {% comment %} <img class="rectangle-icon12" alt="" src="{% static './public/rectangle2.svg' %}" /> {% endcomment %}
+
+          <!-- <img class="icondropdown8" alt="" src="./public/icondropdown.svg" /> -->
+
+          <div class="no-vacancies7"></div>
+          <div class="select11">Email</div>
+        </div>
+        <div class="dropdown10">
+          <input name="password" type="password" class="form-control"placeholder="Password"/>
+
+          <!-- <img class="icondropdown8" alt="" src="./public/icondropdown.svg" /> -->
+        </form>
+          <div class="no-vacancies7"></div>
+          <div class="select11">Password</div>
+        </div>
+        <div class="welcome-back">Welcome Back!</div>
+        <div class="dont-have-an-container">
+          <span>Don’t have an account? </span>
+          <a href='{% url 'register' %}'
+          <span class="create-one">Create one</span>
+        </div>
+        <a href="#" >
+        <div class="forgot-password">Forgot password?</div></a>
+        <b class="b4">🦜</b>
+        <div class="card-child2"></div>
+        <div class="card-child3"></div>
+        <div class="log-in-to">Log in to AStory.ai</div>
+        <div class="social-button-groups2">
+          <div class="social-button13">
+            <img class="social-icon16" alt="" src="{% static './public/social-icon8.svg' %}" />
+
+            <div class="text16">Sign in with Google</div>
+          </div>
+          <div class="social-button14">
+            <img class="social-icon16" alt="" />
+
+            <div class="text16">Sign in with Facebook</div>
+          </div>
+          <div class="social-button13">
+            <img class="social-icon16" alt="" src="{% static './public/social-icon6.svg' %}" />
+
+            <div class="text16">Sign in with Apple</div>
+          </div>
+          <div class="social-button14">
+            <img
+              class="social-icon16"
+              alt=""
+              src="./public/social-icon10.svg"
+            />
+
+            <div class="text16">Sign in with Twitter</div>
+          </div>
+        </div>
+        <div class="or1">OR</div>
+      </div>
+      <img class="eye-off-icon1" alt="" src="{% static './public/eyeoff.svg' %}" />
+    </div>
+
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+</html>
