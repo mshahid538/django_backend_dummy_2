@@ -1,5 +1,6 @@
 import datetime
 import pytz
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -156,7 +157,6 @@ class RegisterView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        print("hello")
         register_post_form = RegisterPostForm(data=request.POST)
         print(request.POST)
         if register_post_form.is_valid():
