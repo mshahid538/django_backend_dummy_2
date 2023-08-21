@@ -1,5 +1,6 @@
 import datetime
 import pytz
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -402,11 +403,14 @@ class ContactView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        contact_form = ContactForm(data=request.data)
+        contact_form = ContactForm(data=request.POST)
         print(contact_form)
         if contact_form.is_valid():
             name = contact_form.cleaned_data["name"]
-            message = contact_form.cleaned_data["message"]
+            message =""" 
+    You have requested to change the password. Please click the link below to change the password if you have requested it, otherwise discard the request.
+    Reset Password following this link:   'http://localhost:3000/password-reset.html'
+"""
             email = contact_form.cleaned_data["email"]
 
             # Sends email to the user
@@ -457,3 +461,6 @@ def message_nums(request):
             has_read=False).count()}
     else:
         return {}
+
+
+
