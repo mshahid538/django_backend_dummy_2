@@ -30,7 +30,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="logout"),
     
     path('accounts/', include('allauth.urls')),
-    path('googleoauth/',include('google_auth.urls')),
+    path('custom/',include('google_auth.urls')),
     
     path('contact/', ContactView.as_view(), name="contact"),
     path('activate/', ActivateView.as_view(), name="activate"),

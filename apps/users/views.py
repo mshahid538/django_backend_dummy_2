@@ -157,7 +157,7 @@ class RegisterView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        print("hello")
+      
         register_post_form = RegisterPostForm(data=request.POST)
         print(request.POST)
         if register_post_form.is_valid():

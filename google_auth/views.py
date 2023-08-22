@@ -62,3 +62,81 @@ def reset(request):
                 'msg':"No email exists",
                    })
             
+
+
+
+
+
+def remove(request):
+    if request.method == "POST":
+        email=request.POST['email']
+        get_user=UserProfile.objects.get(email=email)
+        get_user.delete()
+        return JsonResponse({
+                'success':True,
+            })
+       
+
+
+
+def reset_name(request):
+   
+    if request.method == 'POST':
+
+        username=request.POST['username']
+        newusername=request.POST['newusername']
+        get_user=UserProfile.objects.get(username=username)
+        get_user.username=newusername
+        try:
+          get_user.save()
+          return JsonResponse({
+                'success':True,
+                'username':get_user.username
+            })
+        except:
+            return JsonResponse({
+                'success':False,
+                'msg':"username already used please change it"
+            })
+            
+
+
+def reset_email(request):
+    print(request.POST)
+    if request.method == 'POST':
+        email=request.POST['user_email']
+        newemail=request.POST['newemail']
+        print(newemail)
+        try:
+            new_get_user=UserProfile.objects.get(email=newemail)
+        except:
+            new_get_user=None
+
+        if new_get_user is not None:
+            
+            return JsonResponse({
+                'success':False,
+                'msg':"email alraady used so try another "
+            })
+        get_user=UserProfile.objects.get(email=email)
+        get_user.email=newemail
+        
+        try:
+            get_user.save()
+            return JsonResponse({
+                'success':True,
+                'user_email':get_user.email
+            })
+
+        except:
+            return JsonResponse({
+                'success':False,
+                'msg':" email already used please change it"
+            })
+           
+
+
+
+       
+
+
