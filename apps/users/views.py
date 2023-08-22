@@ -336,10 +336,18 @@ class LoginView(ObtainAuthToken):
 
             email = request.POST['email']
             password = request.POST['password']
-            email =UserProfile.objects.get(email=email)
-            print(email)
+            try:
+                email =UserProfile.objects.get(email=email)
+            except:
+                return Response({
+                'msg': "No email found",
+                }, status=status.HTTP_404_NOT_FOUND, ) 
+
+
+            
+            
             user = authenticate(username=email, password=password)
-            print('user',user)
+            
             if user is not None:
                 token, created = Token.objects.get_or_create(user=user)
                 login(request,user)

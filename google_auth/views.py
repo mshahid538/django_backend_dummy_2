@@ -109,12 +109,30 @@ def reset(request):
 def remove(request):
     if request.method == "POST":
         email=request.POST['email']
+        password=request.POST['password']
+        confirm_password=request.POST['confirm_password']
         get_user=UserProfile.objects.get(email=email)
-        get_user.delete()
-        return JsonResponse({
-                'success':True,
+        user_name=get_user.username
+        if password == confirm_password:
+
+           
+            get_user = authenticate(username=user_name, password=password)
+            if get_user is not None:
+
+                get_user.delete()
+                return JsonResponse({
+                    'success':True,
+                })
+            else:
+                return JsonResponse({
+                    'success':False,
+                    'msg':'password didnot matched in database'
+                })
+        else:
+            return JsonResponse({
+                'success':False,
+                'msg':'password and confirm password not matched'
             })
-       
 
 
 
