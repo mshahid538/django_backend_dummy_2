@@ -11,50 +11,55 @@ from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 # Create your views here.
+from django.http import JsonResponse
+from google.oauth2 import id_token
+from google.auth.transport import requests
 
 #Basically acts as a proxy between frontend and main callback function provided by allauth package 
 def googleoauth(request):
-        google_callback_url = "http://127.0.0.1:8000/accounts/google/login/callback/"  # Replace with actual URL
-        #print(request)
-        if request.method == "POST":
-            data = request.POST  # Assuming the request data is being sent as POST
-        # Make a request to the Google Allauth callback
-            response = requests.post(google_callback_url, data=data)
-                    # Set CORS headers
-            response_headers = {
-                "Access-Control-Allow-Origin": "*",  # You might want to limit this to a specific origin
-                "Access-Control-Allow-Methods": "POST",
-                "Access-Control-Allow-Headers": "Content-Type",
-            }
+        try:
+            # print(request.POST)
+            id_token_data = request.POST['id_token']
+            CLIENT_ID = "322302178356-qeiht1u6u98b1n42rku6aen4ficbjp6r.apps.googleusercontent.com"
+            idinfo = id_token.verify_oauth2_token(id_token_data, requests.Request(), CLIENT_ID)
+            # print(idinfo)
+            if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+                raise ValueError('Wrong issuer.')
+            
+            # Here you can create a user session or perform any other necessary actions.
+            username=idinfo['name']
+            email=idinfo['email']
+            password ="some_password" #since the table has not null property
+            # print(email)
+            
+            try:
+                user=UserProfile.objects.get(email=email)
+            except:
+                user=None
 
-            # Relay the response back to the frontend
-            json_response = response.json()
-            #Basically what we did is saved to db if user doesnot exist else just return few things by logging in this step is done to return the token as creating a token requres user data model object
 
-            user_name =json_response.pdata.given_name 
-            password ="some password" #since the table has not null property
-            email =json_response.pdata.given_email
-            user = authenticate(username=email, password=password)
+            print(user)
             if user is not None:
+                
                 token, created = Token.objects.get_or_create(user=user)
-                login(request,user)
+                
+               
+               
                 utc_now = datetime.datetime.utcnow()
                 utc_now = utc_now.replace(tzinfo=pytz.utc)
                 token.created = utc_now
                 token.save()
-                return Response({
+                return JsonResponse({
                     'token': token.key,
-                    'username': str(email.username),
+                    'username':username,
                     'id': str(user.pk),
                     'pricing_tier': str(user.pricing_tier),
                     'email': str(user.email),
                     'trial_count': user.trial_count
                 })
             else:
-                user_name =user_name 
-                password =password 
-                email =email 
-                user = UserProfile(username=user_name)
+                
+                user = UserProfile(username=username)
                 user.set_password(password)
                 user.email = email
                 user.trial_count = 3
@@ -62,7 +67,7 @@ def googleoauth(request):
 
                 token = Token.objects.create(user=user)
 
-                return Response({
+                return JsonResponse({
                      'msg': "register succeeds",
                      'token': token.key,
                     'username': str(user.username),
@@ -70,9 +75,19 @@ def googleoauth(request):
                     'pricing_tier': str(user.pricing_tier),
                     'email': str(user.email),
                     'trial_count': user.trial_count,
-                }, status=status.HTTP_200_OK)
+                })
 
-        return JsonResponse({"status": "error"})
+
+            
+        except ValueError:
+            return JsonResponse({'error': 'Invalid token.'}, status=400)
+
+
+
+
+
+
+
 
 
 def reset(request):
